@@ -1,0 +1,185 @@
+databaseChangeLog:
+  - changeSet:
+      id: 06-seed-permissions
+      author: slice-e
+      changes:
+        - insert:
+            tableName: permissions
+            columns:
+              - column: { name: name, value: "USER_READ" }
+              - column: { name: description, value: "Permission to view users" }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: permissions
+            columns:
+              - column: { name: name, value: "USER_WRITE" }
+              - column: { name: description, value: "Permission to create/edit users" }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: permissions
+            columns:
+              - column: { name: name, value: "USER_DELETE" }
+              - column: { name: description, value: "Permission to delete users" }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: permissions
+            columns:
+              - column: { name: name, value: "ROLE_READ" }
+              - column: { name: description, value: "Permission to view roles" }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: permissions
+            columns:
+              - column: { name: name, value: "ROLE_WRITE" }
+              - column: { name: description, value: "Permission to create/edit roles" }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: permissions
+            columns:
+              - column: { name: name, value: "ROLE_DELETE" }
+              - column: { name: description, value: "Permission to delete roles" }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: permissions
+            columns:
+              - column: { name: name, value: "PERMISSION_READ" }
+              - column: { name: description, value: "Permission to view permissions" }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: permissions
+            columns:
+              - column: { name: name, value: "PERMISSION_WRITE" }
+              - column: { name: description, value: "Permission to create/edit permissions" }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: permissions
+            columns:
+              - column: { name: name, value: "PERMISSION_DELETE" }
+              - column: { name: description, value: "Permission to delete permissions" }
+              - column: { name: created_by, value: "system" }
+
+  - changeSet:
+      id: 07-seed-roles
+      author: slice-e
+      changes:
+        - insert:
+            tableName: roles
+            columns:
+              - column: { name: name, value: "ROLE_ADMIN" }
+              - column: { name: description, value: "Administrator role with full access" }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: roles
+            columns:
+              - column: { name: name, value: "ROLE_USER" }
+              - column: { name: description, value: "Standard user role with limited read access" }
+              - column: { name: created_by, value: "system" }
+
+  - changeSet:
+      id: 08-seed-users
+      author: slice-e
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column: { name: username, value: "admin" }
+              - column: { name: password, value: "$2a$10$9Yma8T4TEcLZtkNYDee6c.Jz1z6VwzkKGXwkUHQVAqEnNoPmINHV." }
+              - column: { name: email, value: "admin@pro24group1.com" }
+              - column: { name: account_non_expired, valueBoolean: true }
+              - column: { name: account_non_locked, valueBoolean: true }
+              - column: { name: credentials_non_expired, valueBoolean: true }
+              - column: { name: enabled, valueBoolean: true }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: users
+            columns:
+              - column: { name: username, value: "dara" }
+              - column: { name: password, value: "$2a$10$enhEju7Im8qyCKT1PWnYEOZBvcV2KgI9To8YNVSDOiyRlmydnE3.y" }
+              - column: { name: email, value: "dara@pro24group1.com" }
+              - column: { name: account_non_expired, valueBoolean: true }
+              - column: { name: account_non_locked, valueBoolean: true }
+              - column: { name: credentials_non_expired, valueBoolean: true }
+              - column: { name: enabled, valueBoolean: true }
+              - column: { name: created_by, value: "system" }
+
+  - changeSet:
+      id: 09-seed-user-roles
+      author: slice-e
+      changes:
+        - insert:
+            tableName: user_roles
+            columns:
+              - column: { name: user_id, valueNumeric: 1 }
+              - column: { name: role_id, valueNumeric: 1 }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: user_roles
+            columns:
+              - column: { name: user_id, valueNumeric: 2 }
+              - column: { name: role_id, valueNumeric: 2 }
+              - column: { name: created_by, value: "system" }
+
+  - changeSet:
+      id: 10-seed-role-permissions
+      author: slice-e
+      changes:
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column: { name: role_id, valueNumeric: 1 }
+              - column: { name: permission_id, valueNumeric: 1 }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column: { name: role_id, valueNumeric: 1 }
+              - column: { name: permission_id, valueNumeric: 2 }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column: { name: role_id, valueNumeric: 1 }
+              - column: { name: permission_id, valueNumeric: 3 }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column: { name: role_id, valueNumeric: 1 }
+              - column: { name: permission_id, valueNumeric: 4 }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column: { name: role_id, valueNumeric: 1 }
+              - column: { name: permission_id, valueNumeric: 5 }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column: { name: role_id, valueNumeric: 1 }
+              - column: { name: permission_id, valueNumeric: 6 }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column: { name: role_id, valueNumeric: 1 }
+              - column: { name: permission_id, valueNumeric: 7 }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column: { name: role_id, valueNumeric: 1 }
+              - column: { name: permission_id, valueNumeric: 8 }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column: { name: role_id, valueNumeric: 1 }
+              - column: { name: permission_id, valueNumeric: 9 }
+              - column: { name: created_by, value: "system" }
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column: { name: role_id, valueNumeric: 2 }
+              - column: { name: permission_id, valueNumeric: 1 }
+              - column: { name: created_by, value: "system" }
