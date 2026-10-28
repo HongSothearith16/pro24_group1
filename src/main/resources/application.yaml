@@ -2,10 +2,11 @@ spring:
   application:
     name: pro24_group1
   datasource:
-    url: jdbc:postgresql://localhost:5432/pro24_group1
-    username: postgres
-    password: ${DB_PASSWORD}
+    url: ${DB_URL:jdbc:postgresql://localhost:5433/pro24_group1}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:}
   jpa:
+    open-in-view: false
     hibernate:
       ddl-auto: validate
     show-sql: true
@@ -13,14 +14,9 @@ spring:
     change-log: classpath:db/changelog/db.changelog-master.yaml
 
 jwt:
-  secret: ${JWT_SECRET}
+  secret: ${JWT_SECRET:verylongdefaultsecretkeyforjwttokenpro24group1project2026supersecure}
   expiration-ms: 3600000
-jpa:
-  open-in-view: false
-  hibernate:
-    ddl-auto: validate
-  show-sql: true
-
+  refresh-expiration-ms: 86400000
 
 server:
   port: 8081

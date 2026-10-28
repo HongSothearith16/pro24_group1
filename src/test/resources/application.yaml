@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: pro24_group1-test
+  datasource:
+    url: jdbc:h2:mem:pro24_test;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+
+jwt:
+  secret: testsecretkeyformockjwtunitandintegrationtests2026pro24group1secure
+  expiration-ms: 3600000
+  refresh-expiration-ms: 86400000
